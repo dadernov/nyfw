@@ -14,8 +14,19 @@ export interface StylistResult { looks: StyledLook[]; basedOnWardrobe: boolean }
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+const HEELS = new Set(['p-pumps-ivory', 'p-pumps-black', 'p-sockboot']);
+const FLAT_SHOE = 'p-suede-boot';
+
+// The mock reads a few plain-language wishes; the real stylist passes notes to the LLM.
+function readNotes(notes: string) {
+  const n = notes.toLowerCase();
+  return { noHeels: /heel/.test(n) && /(no|without|flat|avoid)/.test(n) || /flat shoes/.test(n), rain: /rain|wet/.test(n) };
+}
+
 function score(l: Look, r: StylistRequest) {
-  return (l.occasion === r.occasion ? 4 : 0) + (l.style === r.style ? 2 : 0) + (l.budget === r.budget ? 1 : 0);
+  const { rain } = readNotes(r.notes);
+  return (l.occasion === r.occasion ? 4 : 0) + (l.style === r.style ? 2 : 0) + (l.budget === r.budget ? 1 : 0) +
+    (rain && l.items.some((id) => id.startsWith('p-trench')) ? 5 : 0);
 }
 
 // Mock of the AI stylist: ranks curated looks against the request and swaps in closet pieces.
@@ -32,12 +43,14 @@ async function generateLooks(req: StylistRequest, closet: ClosetItem[], round: n
     const used = new Set<string>();
     const fromCloset: ClosetItem[] = [];
     const items: Product[] = [];
-    for (const id of look.items) {
+    const { noHeels } = readNotes(req.notes);
+    const ids = noHeels ? [...new Set(look.items.map((id) => (HEELS.has(id) ? FLAT_SHOE : id)))] : look.items;
+    for (const id of ids) {
       const p = byId.get(id)!;
       const own = closet.find((c) => c.category === p.category && !used.has(c.id));
       if (own) { used.add(own.id); fromCloset.push(own); } else items.push(p);
     }
-    return { look, products: items, fromCloset, alternatives: look.alternatives.map((id) => byId.get(id)!) };
+    return { look, products: items, fromCloset, alternatives: look.alternatives.filter((id) => !(noHeels && HEELS.has(id))).map((id) => byId.get(id)!) };
   });
 
   if (opts.delayMs) await wait(opts.delayMs);

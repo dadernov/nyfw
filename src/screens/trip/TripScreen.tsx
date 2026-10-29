@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ChevronRight, CloudSun, MapPin, RefreshCw, Sparkles, Thermometer, X } from 'lucide-react';
 import { content } from '../../data/content';
 import { IMG, img } from '../../data/mock/images';
-import { trips } from '../../data/trips';
+import { nextDayLook, trips } from '../../data/trips';
 import type { ChecklistGroup, Look, Product, StyleKey, Trip, TripRequest } from '../../data/types';
 import { useDemo } from '../../state/store';
 import { Button, Chip, Header, Img, Screen, useToast } from '../../ui';
@@ -124,8 +124,7 @@ function TripResult({ initial, onBack }: { initial: Trip; onBack: () => void }) 
   const toggle = (id: string) => update({ ...trip, checklist: trip.checklist.map((c) => (c.id === id ? { ...c, packed: !c.packed } : c)) });
   const remove = (id: string) => update({ ...trip, checklist: trip.checklist.filter((c) => c.id !== id) });
   const restyle = (i: number) => {
-    const cur = looks.findIndex((l) => l.title === trip.days[i].lookTitle);
-    const next = looks[(cur + 1 + looks.length) % looks.length];
+    const next = nextDayLook(looks, trip.days[i].lookTitle, trip.forecast.tempC);
     update({ ...trip, days: trip.days.map((d, j) => (j === i ? { ...d, lookTitle: next.title, items: next.items } : d)) });
   };
   const packed = trip.checklist.filter((c) => c.packed).length;

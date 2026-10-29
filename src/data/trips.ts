@@ -106,4 +106,12 @@ async function buildTrip(req: TripRequest, closet: ClosetItem[], opts = { delayM
   };
 }
 
+// Next look for one day of a trip that still suits the weather.
+export function nextDayLook(looks: Look[], currentTitle: string, tempC: number): Look {
+  const fits = looks.filter((l) => tempC >= l.tempMin - 3 && tempC <= l.tempMax + 3);
+  const pool = fits.length > 1 ? fits : looks;
+  const i = pool.findIndex((l) => l.title === currentTitle);
+  return pool[(i + 1) % pool.length];
+}
+
 export const trips = { buildTrip };

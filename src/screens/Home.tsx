@@ -5,7 +5,7 @@ import { content } from '../data/content';
 import { IMG, img } from '../data/mock/images';
 import type { Designer, Look, Trend } from '../data/types';
 import { useDemo } from '../state/store';
-import { Img, Screen } from '../ui';
+import { Img, Screen, useToast } from '../ui';
 import { Logo } from './onboarding/Logo';
 import './home.css';
 
@@ -22,6 +22,7 @@ export function useAsync<T>(fn: () => Promise<T>, deps: unknown[] = []): T | und
 
 export function Home() {
   const { profile, saved } = useDemo();
+  const [toast, showToast] = useToast();
   const data = useAsync(() => Promise.all([content.getTrends(), content.getDesigners(), content.getLooks()]));
   const [trends, designers, looks] = data ?? [[] as Trend[], [] as Designer[], [] as Look[]];
   const savedLooks = saved.map((id) => looks.find((l) => l.id === id)).filter(Boolean) as Look[];
@@ -35,7 +36,7 @@ export function Home() {
         <div className="shade" />
         <div className="bar">
           <Logo />
-          <button className="bell" aria-label="Notifications"><Bell size={21} strokeWidth={1.4} /><i /></button>
+          <button className="bell" aria-label="Notifications" onClick={() => showToast('Notifications arrive in the full app')}><Bell size={21} strokeWidth={1.4} /><i /></button>
         </div>
         <div className="greet">
           <h1>Welcome, <br />{profile.name || 'Guest'}</h1>
@@ -91,6 +92,7 @@ export function Home() {
           </div>
         ) : <p className="empty-saved">Looks you save from your stylist will live here.</p>}
       </div>
+      {toast}
     </Screen>
   );
 }

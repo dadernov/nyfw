@@ -24,3 +24,10 @@ test('saved looks appear on home', async () => {
   renderAt('/');
   expect(await screen.findByText('Ink Suit, Soft Edge')).toBeInTheDocument();
 });
+
+test('notifications bell gives feedback', async () => {
+  const u = userEvent.setup();
+  renderAt('/');
+  await u.click(screen.getByRole('button', { name: /notifications/i }));
+  expect(await screen.findByRole('status')).toHaveTextContent(/notifications/i);
+});

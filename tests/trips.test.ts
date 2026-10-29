@@ -48,3 +48,16 @@ test('end before start still yields one day', async () => {
   const t = await trips.buildTrip({ ...base, end: '2026-11-01' }, [], opts);
   expect(t.days).toHaveLength(1);
 });
+
+test('restyling a hot-weather day never picks a cold-weather look', async () => {
+  const { nextDayLook } = await import('../src/data/trips');
+  const { content } = await import('../src/data/content');
+  const looks = await content.getLooks();
+  let current = 'Somewhere Warm';
+  for (let i = 0; i < 6; i++) {
+    const next = nextDayLook(looks, current, 29);
+    expect(next.title).not.toBe(current);
+    expect(next.tempMax + 3).toBeGreaterThanOrEqual(29);
+    current = next.title;
+  }
+});

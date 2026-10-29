@@ -37,3 +37,16 @@ test('uses a matching closet item in place of a catalog piece', async () => {
   expect(r.basedOnWardrobe).toBe(true);
   expect(r.looks[0].fromCloset.map((c) => c.id)).toContain('c1');
 });
+
+test('"no heels" in notes removes heeled shoes from every look', async () => {
+  const heels = ['p-pumps-ivory', 'p-pumps-black', 'p-sockboot'];
+  for (let round = 0; round < 4; round++) {
+    const r = await stylist.generateLooks({ ...req, notes: 'No heels today' }, [], round, opts);
+    for (const l of r.looks) for (const p of l.products) expect(heels).not.toContain(p.id);
+  }
+});
+
+test('"it might rain" puts a trench look first', async () => {
+  const r = await stylist.generateLooks({ ...req, occasion: 'weekend', notes: 'It might rain' }, [], 0, opts);
+  expect(r.looks[0].products.some((p) => p.id.startsWith('p-trench'))).toBe(true);
+});
