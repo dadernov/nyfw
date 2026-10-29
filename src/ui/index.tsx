@@ -13,11 +13,11 @@ export function Chip({ on, children, ...rest }: ButtonHTMLAttributes<HTMLButtonE
   return <button className={`chip${on ? ' on' : ''}`} aria-pressed={on} {...rest}>{children}</button>;
 }
 
-export function Img({ src, alt, className = '', style }: { src: string; alt: string; className?: string; style?: React.CSSProperties }) {
+export function Img({ src, alt, className = '', style, eager }: { src: string; alt: string; className?: string; style?: React.CSSProperties; eager?: boolean }) {
   const [loaded, setLoaded] = useState(false);
   return (
     <div className={`img${loaded ? ' loaded' : ''} ${className}`} style={style}>
-      <img src={src} alt={alt} loading="lazy" onLoad={() => setLoaded(true)} onError={() => setLoaded(true)} />
+      <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} onLoad={() => setLoaded(true)} onError={() => setLoaded(true)} />
     </div>
   );
 }

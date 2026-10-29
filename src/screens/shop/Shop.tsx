@@ -68,7 +68,7 @@ export function ProductDetail() {
   return (
     <Screen>
       <div className="t-hero hero-bleed" style={{ height: 500, color: 'var(--ink)' }}>
-        <Img src={p.image.replace('w=700', 'w=1100')} alt={p.name} />
+        <Img eager src={p.image.replace('w=700', 'w=1100')} alt={p.name} />
         <Header clear />
       </div>
       <div className="t-body">

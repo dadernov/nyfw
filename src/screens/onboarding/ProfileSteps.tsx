@@ -12,7 +12,7 @@ export const STYLES: { key: StyleKey; label: string; image: keyof typeof IMG }[]
   { key: 'minimal', label: 'Minimal', image: 'whiteCoat' },
   { key: 'classic', label: 'Classic', image: 'streetBeigeTrench' },
   { key: 'editorial', label: 'Editorial', image: 'runwayBW' },
-  { key: 'relaxed', label: 'Relaxed', image: 'nycWalkersBW' },
+  { key: 'relaxed', label: 'Relaxed', image: 'flatlayMix' },
   { key: 'romantic', label: 'Romantic', image: 'runwayGauze' },
 ];
 export const BUDGETS: { key: Budget; label: string; note: string }[] = [

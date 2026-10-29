@@ -1,1 +1,1 @@
-{ "name": "NYFW Style", "short_name": "NYFW Style", "start_url": "/", "display": "standalone", "background_color": "#F7F3EC", "theme_color": "#F7F3EC", "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }] }
+{ "name": "NYFW Style", "short_name": "NYFW Style", "start_url": "/", "display": "standalone", "background_color": "#F7F3EC", "theme_color": "#F7F3EC", "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }, { "src": "/icon-180.png", "sizes": "180x180", "type": "image/png" }] }

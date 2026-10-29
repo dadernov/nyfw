@@ -64,7 +64,7 @@ export function TrendDetail() {
   return (
     <Screen>
       <div className="t-hero hero-bleed">
-        <Img src={t.image} alt={t.title} />
+        <Img eager src={t.image} alt={t.title} />
         <span className="fade-bottom" />
         <Header clear />
         <div className="txt"><span className="tag dark">{t.season} · {t.category}</span><h1>{t.title}</h1></div>
@@ -152,7 +152,7 @@ export function DesignerDetail() {
   return (
     <Screen>
       <div className="t-hero hero-bleed" style={{ height: 440 }}>
-        <Img src={d.image} alt={d.name} />
+        <Img eager src={d.image} alt={d.name} />
         <span className="fade-bottom" />
         <Header clear />
         <div className="txt"><span className="tag dark">{d.city}</span><h1>{d.name}</h1></div>

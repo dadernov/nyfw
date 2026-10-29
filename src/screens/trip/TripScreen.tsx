@@ -51,7 +51,7 @@ export function TripPlanner() {
   return (
     <Screen>
       <div className="trip-hero hero-bleed">
-        <Img src={img(IMG.suitcaseHat, 1000)} alt="Open suitcase with a hat and travel essentials" />
+        <Img eager src={img(IMG.suitcaseHat, 1000)} alt="Open suitcase with a hat and travel essentials" />
         <span className="fade-bottom" />
         <div className="txt">
           <div className="eyebrow" style={{ color: 'rgba(255,255,255,.8)' }}>AI Suitcase</div>
@@ -134,7 +134,7 @@ function TripResult({ initial, onBack }: { initial: Trip; onBack: () => void }) 
   return (
     <Screen>
       <div className="trip-hero hero-bleed" style={{ height: 260 }}>
-        <Img src={img(IMG.suitcaseBlack, 1000)} alt="Packed suitcase" />
+        <Img eager src={img(IMG.suitcaseBlack, 1000)} alt="Packed suitcase" />
         <span className="fade-bottom" />
         <Header clear />
         <div className="txt">

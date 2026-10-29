@@ -28,3 +28,10 @@
 .tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 10.5px; color: var(--muted); letter-spacing: .02em; position: relative; }
 .tab.active { color: var(--ink); }
 .tab .dot { position: absolute; top: -10px; width: 18px; height: 2px; background: var(--champagne); border-radius: 2px; }
+@media (min-width: 600px) {
+  .device .tabbar { padding-bottom: 16px; height: calc(var(--tabbar-h) + 16px); }
+  .device .viewport.with-tabs { padding-bottom: calc(var(--tabbar-h) + 16px); }
+}
+@media (min-width: 600px) and (max-height: 960px) { .device { zoom: .9; } }
+@media (min-width: 600px) and (max-height: 860px) { .device { zoom: .8; } }
+@media (min-width: 600px) and (max-height: 760px) { .device { zoom: .7; } }
