@@ -67,3 +67,40 @@ export interface ClosetItem {
   color: string;
   photo?: string;
 }
+
+export interface Profile {
+  name: string;
+  onboarded: boolean;
+  styles: StyleKey[];
+  budget: Budget;
+  brands: string[];
+  scenarios: Occasion[];
+  sizes: { top?: string; bottom?: string; shoe?: string };
+  consents: { location: boolean; photos: boolean; personalization: boolean };
+}
+
+export interface TripRequest {
+  destination: string;
+  start: string; // ISO date
+  end: string;
+  purpose: 'business' | 'leisure' | 'fashion-week' | 'wedding';
+  dressCodes: string[];
+  luggage: 'carry-on' | 'suitcase';
+  style: StyleKey;
+  tempC?: number;
+}
+
+export type ChecklistGroup = 'clothing' | 'shoes' | 'accessories' | 'essentials';
+
+export interface ChecklistItem { id: string; group: ChecklistGroup; label: string; packed: boolean; productId?: string; closetId?: string }
+
+export interface Trip {
+  id: string;
+  request: TripRequest;
+  forecast: { tempC: number; summary: string; manual: boolean };
+  capsule: string[];
+  days: { date: string; label: string; lookTitle: string; items: string[] }[];
+  checklist: ChecklistItem[];
+  missing: string[];
+  basedOnWardrobe: boolean;
+}
