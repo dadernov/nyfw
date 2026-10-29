@@ -9,7 +9,7 @@ export function Splash() {
   const nav = useNavigate();
   return (
     <div className="splash">
-      <Img className="bg" src={img(IMG.heroRunway, 1200)} alt="Model on a runway in an ivory gown" />
+      <Img className="bg" src={img(IMG.runwaySunglasses, 1200)} alt="Model on a runway" />
       <div className="shade" />
       <motion.div className="top-logo" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .2, duration: .8 }}>
         <Logo />

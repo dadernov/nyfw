@@ -31,7 +31,7 @@ export function Home() {
   return (
     <Screen>
       <section className="home-hero hero-bleed">
-        <Img src={img(IMG.heroRunway, 1200)} alt="Model walking a runway in an ivory gown" />
+        <Img src={img(IMG.runwaySunglasses, 1200)} alt="Model walking a runway" />
         <div className="shade" />
         <div className="bar">
           <Logo />

@@ -20,7 +20,7 @@ function score(l: Look, r: StylistRequest) {
 
 // Mock of the AI stylist: ranks curated looks against the request and swaps in closet pieces.
 // The real service grounds an LLM in the same catalog, so the screen contract stays the same.
-async function generateLooks(req: StylistRequest, closet: ClosetItem[], round: number, opts = { delayMs: 1400 }): Promise<StylistResult> {
+async function generateLooks(req: StylistRequest, closet: ClosetItem[], round: number, opts = { delayMs: import.meta.env.MODE === 'test' ? 0 : 1400 }): Promise<StylistResult> {
   const [looks, products] = await Promise.all([content.getLooks(), content.getProducts()]);
   const byId = new Map(products.map((p) => [p.id, p]));
   const ranked = [...looks].sort((a, b) => score(b, req) - score(a, req));

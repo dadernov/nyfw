@@ -63,7 +63,7 @@ function essentials(tempC: number, days: number): string[] {
 }
 
 // Mock of "Pack My Trip": builds a capsule from curated looks, preferring the user's own pieces.
-async function buildTrip(req: TripRequest, closet: ClosetItem[], opts = { delayMs: 1600 }): Promise<Trip> {
+async function buildTrip(req: TripRequest, closet: ClosetItem[], opts = { delayMs: import.meta.env.MODE === 'test' ? 0 : 1600 }): Promise<Trip> {
   const [looks, products] = await Promise.all([content.getLooks(), content.getProducts()]);
   const byId = new Map(products.map((p) => [p.id, p]));
   const forecast = forecastFor(req);

@@ -21,7 +21,7 @@
 .duo-card h3 { font-size: 19px; }
 .duo-card .eyebrow { font-size: 9.5px; margin-top: 4px; }
 
-.h-scroll { display: flex; gap: 12px; overflow-x: auto; padding: 0 20px 6px; scroll-snap-type: x mandatory; }
+.h-scroll { display: flex; gap: 12px; overflow-x: auto; padding: 0 20px 6px; scroll-snap-type: x mandatory; scroll-padding: 0 20px; }
 .h-scroll > * { scroll-snap-align: start; flex-shrink: 0; }
 .designer-chip { width: 128px; }
 .designer-chip .img { width: 128px; height: 160px; border-radius: 14px; }
