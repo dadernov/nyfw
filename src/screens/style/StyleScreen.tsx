@@ -17,14 +17,14 @@ const OCCASIONS: { key: Occasion; label: string }[] = [
 const PROMPTS = ['No heels today', 'It might rain', 'Client meeting at 3', 'Dinner after work'];
 const STEPS = ['Reading your Style Profile', 'Checking this season’s trends', 'Pairing pieces from the catalog', 'Writing your stylist notes'];
 
-function Thinking() {
+export function Thinking({ title = 'Styling your looks…', steps = STEPS }: { title?: string; steps?: string[] }) {
   const [i, setI] = useState(0);
-  useEffect(() => { const t = setInterval(() => setI((n) => Math.min(n + 1, STEPS.length - 1)), 380); return () => clearInterval(t); }, []);
+  useEffect(() => { const t = setInterval(() => setI((n) => Math.min(n + 1, steps.length - 1)), 380); return () => clearInterval(t); }, [steps]);
   return (
     <div className="thinking" role="status">
       <div className="orb" />
-      <h2>Styling your looks…</h2>
-      <AnimatePresence mode="wait"><motion.p key={i} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{STEPS[i]}</motion.p></AnimatePresence>
+      <h2>{title}</h2>
+      <AnimatePresence mode="wait"><motion.p key={i} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{steps[i]}</motion.p></AnimatePresence>
     </div>
   );
 }
