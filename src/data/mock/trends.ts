@@ -1,0 +1,118 @@
+import type { Trend } from '../types';
+import { IMG, img } from './images';
+
+// Editorial demo copy: in production every trend is written and approved in the CMS.
+export const trends: Trend[] = [
+  {
+    id: 'ink-tailoring', title: 'Ink Tailoring', season: 'FW 2026', category: 'Silhouette', image: img(IMG.runwaySuits, 1200), updated: '2026-10-21',
+    summary: 'Black suiting goes soft: cinched waists, fluid legs, no tie in sight.',
+    body: 'The strongest message of the season was a black suit that moves. Blazers are cut close at the waist and released at the shoulder; trousers fall wide and pool slightly over the shoe. Styled with a bare neck or a single gold chain, it reads as evening as easily as office.',
+    colors: ['#0B0B0B', '#2B2B2B', '#F7F3EC'], silhouettes: ['Cinched blazer', 'Wide trouser', 'Column'],
+    designers: ['ardent', 'koda'], products: ['p-blazer-ink', 'p-trouser-wide', 'p-necklace', 'p-pumps-black'],
+    realLife: {
+      minimal: 'Keep it to two pieces — blazer and wide trouser — with a white tee and flat leather shoes.',
+      classic: 'Wear the full suit with a silk blouse and pointed pumps; add small gold hoops.',
+      editorial: 'Go bare under the blazer, belt it high, and finish with a flat snake chain and sock boots.',
+      relaxed: 'Swap the trouser for straight jeans; the black blazer does the work.',
+      romantic: 'Soften it with a blush silk blouse and a metallic mini bag.',
+    },
+  },
+  {
+    id: 'trench-season', title: 'The Long Trench', season: 'FW 2026', category: 'Silhouette', image: img(IMG.streetBeigeTrench, 1200), updated: '2026-10-19',
+    summary: 'Ankle-grazing, oversized and worn open — the trench is the outfit.',
+    body: 'Trenches got longer and looser, with dropped shoulders and deep storm flaps. The street-style rule: wear it open over a single colour underneath so the coat becomes the silhouette.',
+    colors: ['#C8B59A', '#B8976A', '#0B0B0B'], silhouettes: ['Oversized trench', 'Column underneath'],
+    designers: ['wren'], products: ['p-trench-classic', 'p-trench-camel', 'p-turtleneck', 'p-suede-boot'],
+    realLife: {
+      minimal: 'Beige trench over an all-black base: turtleneck, straight trouser, ankle boots.',
+      classic: 'Belted trench, white shirt, dark denim and a structured top-handle bag.',
+      editorial: 'Wear it open over a slip dress with sock boots, sleeves pushed up.',
+      relaxed: 'Throw it over a sweatshirt and jeans — the length dresses it up instantly.',
+      romantic: 'Pair with a gauze midi peeking below the hem.',
+    },
+  },
+  {
+    id: 'liquid-satin', title: 'Liquid Satin', season: 'FW 2026', category: 'Fabric', image: img(IMG.streetSlipBW, 1200), updated: '2026-10-17',
+    summary: 'Bias-cut slips leave the evening and go to work under knitwear.',
+    body: 'Satin was everywhere, but the new way to wear it is daytime: a slip dress under a merino turtleneck or a boxy blazer, finished with a flat boot instead of a heel.',
+    colors: ['#0B0B0B', '#D9CBB8', '#8A847B'], silhouettes: ['Slip dress', 'Layered knit'],
+    designers: ['noor', 'varga'], products: ['p-slip-black', 'p-turtleneck', 'p-sockboot', 'p-bag-metal'],
+    realLife: {
+      minimal: 'Black slip, black fine-knit turtleneck, black boots — one colour, three textures.',
+      classic: 'Slip dress under a camel blazer with pumps and a pendant.',
+      editorial: 'Satin with a trench and nothing else; metallic mini bag.',
+      relaxed: 'Layer an oversized sweater over the slip and wear trainers.',
+      romantic: 'Blush blouse tied over the slip at the waist.',
+    },
+  },
+  {
+    id: 'molten-gold', title: 'Molten Gold', season: 'SS 2027', category: 'Accessory', image: img(IMG.hoops, 1200), updated: '2026-10-14',
+    summary: 'Organic, hand-carved gold replaces logo jewelry.',
+    body: 'Jewelry looked melted and sculpted: irregular hoops, chunky rings and pendants worn one at a time. The point is texture, not branding.',
+    colors: ['#B8976A', '#D9CBB8', '#F7F3EC'], silhouettes: ['Statement hoop', 'Single pendant'],
+    designers: ['moreau'], products: ['p-hoops', 'p-rings', 'p-pendant', 'p-necklace'],
+    realLife: {
+      minimal: 'One piece only: molten hoops with a black turtleneck.',
+      classic: 'Pendant over a white shirt, collar open.',
+      editorial: 'Stack all three rings on one hand, nothing else.',
+      relaxed: 'Hoops with a white tee and denim — instantly finished.',
+      romantic: 'Layer the pendant with the snake chain over a silk blouse.',
+    },
+  },
+  {
+    id: 'ivory-everything', title: 'Ivory Everything', season: 'SS 2027', category: 'Color', image: img(IMG.heroRunway, 1200), updated: '2026-10-12',
+    summary: 'Head-to-toe ivory, layered in different fabrics.',
+    body: 'Spring previews leaned into cream on cream: wool trousers, a soft coat and leather pumps all within two shades of each other. Texture keeps it from looking flat.',
+    colors: ['#F7F3EC', '#EDE6DA', '#D9CBB8'], silhouettes: ['Tonal layering', 'Long coat'],
+    designers: ['koda', 'noor'], products: ['p-coat-white', 'p-trouser-ivory', 'p-pumps-ivory', 'p-bag-white'],
+    realLife: {
+      minimal: 'Ivory trouser, white sweatshirt, white tote. Done.',
+      classic: 'White double-breasted coat over ivory trousers with pointed pumps.',
+      editorial: 'Draped ivory gown with a sharp white coat on the shoulders.',
+      relaxed: 'Ivory knit with light jeans and white trainers.',
+      romantic: 'Gauze midi in sand with ivory pumps.',
+    },
+  },
+  {
+    id: 'craft-knits', title: 'Hand-Made Knits', season: 'FW 2026', category: 'Fabric', image: img(IMG.knitRust, 1200), updated: '2026-10-10',
+    summary: 'Visible cables and rust tones bring warmth back to the runway.',
+    body: 'Designers showed knits that look hand-made on purpose: oversized cables, irregular stitches and earthy rust, camel and chocolate.',
+    colors: ['#A0522D', '#B8976A', '#5A3E2B'], silhouettes: ['Chunky knit', 'Turtleneck'],
+    designers: ['varga'], products: ['p-cable-rust', 'p-turtleneck', 'p-suede-boot', 'p-jeans-straight'],
+    realLife: {
+      minimal: 'Rust cable knit with black trousers and black boots.',
+      classic: 'Turtleneck under a camel blazer.',
+      editorial: 'Chunky knit over a satin slip.',
+      relaxed: 'Cable knit, straight jeans, suede boots.',
+      romantic: 'Knit tied over the shoulders of a gauze dress.',
+    },
+  },
+  {
+    id: 'street-noir', title: 'Street Noir', season: 'FW 2026', category: 'Color', image: img(IMG.streetTrenchBW, 1200), updated: '2026-10-08',
+    summary: 'Show-goers dressed in black — but every piece in a different texture.',
+    body: 'Outside the shows, all-black looks dominated, built from leather, wool, satin and knit so the outfit reads rich, not flat.',
+    colors: ['#0B0B0B', '#3A3835', '#8A847B'], silhouettes: ['Long coat', 'Wide trouser'],
+    designers: ['ardent', 'halden'], products: ['p-trench-black', 'p-trouser-wide', 'p-sockboot', 'p-sunglasses'],
+    realLife: {
+      minimal: 'Black coat, black turtleneck, black trousers, black boots.',
+      classic: 'Black trench over a black suit.',
+      editorial: 'Leather sock boots with a satin slip and long trench.',
+      relaxed: 'Black sweatshirt and wide trousers under a black trench.',
+      romantic: 'Black slip with gold jewelry.',
+    },
+  },
+  {
+    id: 'white-coat', title: 'The White Coat', season: 'SS 2027', category: 'Silhouette', image: img(IMG.whiteCoat, 1200), updated: '2026-10-05',
+    summary: 'A crisp white coat becomes the season’s most-wanted outer layer.',
+    body: 'Double-breasted, military buttons and a clean A-line: the white coat is impractical on purpose — and everyone wanted one.',
+    colors: ['#FFFFFF', '#F7F3EC', '#0B0B0B'], silhouettes: ['Double-breasted', 'A-line'],
+    designers: ['koda'], products: ['p-coat-white', 'p-sweat-white', 'p-jeans-straight', 'p-bag-white'],
+    realLife: {
+      minimal: 'White coat over a black base for maximum contrast.',
+      classic: 'White coat, ivory trousers, pointed pumps.',
+      editorial: 'Belt it over the ivory gown.',
+      relaxed: 'Over jeans and a sweatshirt.',
+      romantic: 'With a blush silk blouse.',
+    },
+  },
+];
