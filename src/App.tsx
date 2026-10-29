@@ -4,13 +4,11 @@ import { Onboarding } from './screens/onboarding';
 import { StyleScreen } from './screens/style/StyleScreen';
 import { SavedTrip, TripPlanner } from './screens/trip/TripScreen';
 import { ProductDetail, ShopScreen } from './screens/shop/Shop';
-import { DesignerDetail, DesignerList, TrendDetail, TrendFeed } from './screens/trends/Trends';
+import { Closet } from './screens/closet/Closet';
+import { LookPage, You } from './screens/closet/You';
+import { DesignerDetail, DesignerList, NotFound, TrendDetail, TrendFeed } from './screens/trends/Trends';
 import { TabBar } from './shell/TabBar';
 import { useDemo } from './state/store';
-
-function Placeholder({ title }: { title: string }) {
-  return <h1 style={{ padding: 24 }}>{title}</h1>;
-}
 
 export function AppRoutes() {
   const { pathname } = useLocation();
@@ -28,10 +26,12 @@ export function AppRoutes() {
           <Route path="/trends/:id" element={<TrendDetail />} />
           <Route path="/designers" element={<DesignerList />} />
           <Route path="/designers/:id" element={<DesignerDetail />} />
-          <Route path="/closet" element={<Placeholder title="Closet" />} />
+          <Route path="/closet" element={<Closet />} />
+          <Route path="/looks/:id" element={<LookPage />} />
           <Route path="/shop" element={<ShopScreen />} />
           <Route path="/shop/:id" element={<ProductDetail />} />
-          <Route path="/you" element={<Placeholder title="You" />} />
+          <Route path="/you" element={<You />} />
+          <Route path="*" element={<NotFound what="Page" back="/" label="Go home" />} />
           <Route path="/onboarding/*" element={<Onboarding />} />
         </Routes>
       </main>
