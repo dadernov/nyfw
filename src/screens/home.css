@@ -1,0 +1,41 @@
+.home-hero { position: relative; height: 520px; color: #fff; }
+.home-hero .img { position: absolute; inset: 0; }
+.home-hero .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.4), rgba(0,0,0,0) 28%, rgba(0,0,0,.1) 55%, rgba(0,0,0,.62)); }
+.home-hero .bar { position: absolute; top: calc(18px + env(safe-area-inset-top)); left: 22px; right: 16px; display: flex; justify-content: space-between; align-items: flex-start; }
+@media (min-width: 600px) { .home-hero .bar { top: 56px; } }
+.home-hero .logo .mark { font-size: 38px; }
+.home-hero .logo .word { font-size: 9px; letter-spacing: .45em; margin-top: 6px; }
+.home-hero .bell { width: 40px; height: 40px; display: grid; place-items: center; }
+.home-hero .bell i { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--champagne); transform: translate(7px, -8px); }
+.home-hero .greet { position: absolute; left: 22px; right: 22px; bottom: 74px; }
+.home-hero h1 { font-size: 44px; line-height: 1; }
+.home-hero .greet p { font-family: var(--serif); font-size: 18px; margin-top: 8px; color: rgba(255,255,255,.88); }
+
+.wear-card { position: relative; z-index: 2; margin: -46px 16px 0; display: flex; align-items: center; justify-content: space-between; padding: 20px 20px; }
+.wear-card h3 { font-size: 24px; }
+.wear-card .eyebrow { margin-top: 6px; }
+
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 14px 16px 0; }
+.duo-card .img { height: 150px; }
+.duo-card div.txt { padding: 12px 14px 14px; }
+.duo-card h3 { font-size: 19px; }
+.duo-card .eyebrow { font-size: 9.5px; margin-top: 4px; }
+
+.h-scroll { display: flex; gap: 12px; overflow-x: auto; padding: 0 20px 6px; scroll-snap-type: x mandatory; }
+.h-scroll > * { scroll-snap-align: start; flex-shrink: 0; }
+.designer-chip { width: 128px; }
+.designer-chip .img { width: 128px; height: 160px; border-radius: 14px; }
+.designer-chip b { display: block; font-family: var(--serif); font-weight: 400; font-size: 16px; margin-top: 10px; }
+.designer-chip small { color: var(--muted); font-size: 12px; }
+
+.trend-strip { position: relative; margin: 0 16px; height: 230px; border-radius: var(--r-lg); overflow: hidden; color: #fff; display: block; }
+.trend-strip .img { position: absolute; inset: 0; }
+.trend-strip .txt { position: absolute; left: 18px; right: 18px; bottom: 16px; }
+.trend-strip h3 { font-size: 28px; margin: 8px 0 4px; }
+.trend-strip p { font-size: 13px; color: rgba(255,255,255,.85); }
+
+.saved-tile { width: 150px; }
+.saved-tile .img { height: 200px; border-radius: 14px; }
+.saved-tile b { display: block; margin-top: 10px; font-weight: 500; font-size: 13.5px; }
+.empty-saved { margin: 0 16px; padding: 22px; text-align: center; border: 1px dashed var(--sand); border-radius: var(--r-lg); color: var(--ink-2); font-size: 14px; }
+.px { padding: 0 20px; }

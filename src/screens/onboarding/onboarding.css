@@ -1,0 +1,49 @@
+.splash { position: relative; height: 100dvh; min-height: 640px; color: #fff; display: flex; flex-direction: column; justify-content: flex-end; }
+@media (min-width: 600px) { .splash { height: 844px; margin-top: -44px; } }
+.splash .bg { position: absolute; inset: 0; }
+.splash .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.15) 55%, rgba(0,0,0,.78) 100%); }
+.splash .content { position: relative; padding: 0 28px calc(40px + env(safe-area-inset-bottom)); }
+.logo { font-family: var(--serif); line-height: .9; letter-spacing: -.02em; }
+.logo .mark { font-size: 52px; }
+.logo .word { font-family: var(--sans); font-size: 11px; letter-spacing: .5em; margin-top: 10px; padding-left: 4px; }
+.splash .top-logo { position: absolute; top: calc(56px + env(safe-area-inset-top)); left: 28px; }
+.splash h1 { font-size: 44px; margin-bottom: 12px; }
+.splash p { color: rgba(255,255,255,.82); margin-bottom: 28px; max-width: 30ch; }
+
+.signin { min-height: 100%; display: flex; flex-direction: column; padding: 72px 28px 36px; }
+.signin .logo { text-align: center; margin-bottom: auto; }
+.signin .logo .mark { font-size: 64px; }
+.signin .logo .gold-rule { margin: 14px auto; }
+.signin h2 { font-size: 30px; text-align: center; margin: 48px 0 8px; }
+.signin .sub { text-align: center; color: var(--ink-2); margin-bottom: 28px; }
+.signin .stack { display: grid; gap: 12px; }
+.signin small { display: block; text-align: center; color: var(--muted); font-size: 11.5px; margin-top: 18px; line-height: 1.5; }
+
+.steps { min-height: 100%; display: flex; flex-direction: column; padding: 16px 24px 32px; }
+.progress { display: flex; gap: 4px; margin: 6px 0 28px; }
+.progress span { flex: 1; height: 2px; background: var(--line); border-radius: 2px; transition: background .3s; }
+.progress span.on { background: var(--ink); }
+.steps .top { display: flex; justify-content: space-between; align-items: center; height: 40px; }
+.steps h2 { font-size: 34px; margin-bottom: 10px; }
+.steps .hint { color: var(--ink-2); margin-bottom: 26px; }
+.steps .body { flex: 1; }
+.steps .actions { display: grid; gap: 8px; margin-top: 24px; }
+
+.style-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.style-tile { position: relative; height: 150px; border-radius: 14px; overflow: hidden; text-align: left; }
+.style-tile .img { position: absolute; inset: 0; }
+.style-tile .fade-bottom { transition: background .2s; }
+.style-tile b { position: absolute; left: 12px; bottom: 10px; color: #fff; font-family: var(--serif); font-weight: 400; font-size: 20px; }
+.style-tile .check { position: absolute; top: 10px; right: 10px; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid #fff; display: grid; place-items: center; background: rgba(0,0,0,.15); }
+.style-tile.on .check { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.style-tile.on { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.option-list { display: grid; gap: 10px; }
+.option { display: flex; align-items: center; justify-content: space-between; padding: 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--paper); text-align: left; transition: all .2s; }
+.option.on { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.option b { font-weight: 500; display: block; }
+.option small { color: var(--muted); }
+.toggle { width: 46px; height: 28px; border-radius: 99px; background: var(--line); position: relative; transition: background .2s; flex-shrink: 0; }
+.toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); transition: transform .2s; }
+.toggle.on { background: var(--ink); }
+.toggle.on::after { transform: translateX(18px); }
