@@ -58,3 +58,13 @@
 .fade-bottom { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.05) 35%, rgba(0,0,0,.65)); }
 .toast { position: absolute; left: 50%; bottom: calc(var(--tabbar-h) + 18px); transform: translateX(-50%); z-index: 70; background: var(--ink); color: var(--ivory); padding: 12px 18px; border-radius: 999px; font-size: 13px; white-space: nowrap; }
 @media (max-width: 599px) { .toast { position: fixed; } }
+
+.pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 12px; padding: 0 20px; }
+.ptile { display: block; min-width: 0; }
+.ptile-img { position: relative; }
+.ptile-img .img { aspect-ratio: 3/4; border-radius: 14px; }
+.ptile-tag { position: absolute; left: 8px; bottom: 8px; background: rgba(255,253,249,.92); }
+.ptile-brand { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+.ptile-name { font-size: 14px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ptile-price { font-size: 13.5px; font-weight: 500; margin-top: 2px; }
+.h-scroll .ptile { width: 150px; }

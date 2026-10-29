@@ -3,6 +3,7 @@ import { Home } from './screens/Home';
 import { Onboarding } from './screens/onboarding';
 import { StyleScreen } from './screens/style/StyleScreen';
 import { SavedTrip, TripPlanner } from './screens/trip/TripScreen';
+import { DesignerDetail, DesignerList, TrendDetail, TrendFeed } from './screens/trends/Trends';
 import { TabBar } from './shell/TabBar';
 import { useDemo } from './state/store';
 
@@ -22,7 +23,10 @@ export function AppRoutes() {
           <Route path="/style" element={<StyleScreen />} />
           <Route path="/trip" element={<TripPlanner />} />
           <Route path="/trip/:id" element={<SavedTrip />} />
-          <Route path="/trends/*" element={<Placeholder title="Trend Report" />} />
+          <Route path="/trends" element={<TrendFeed />} />
+          <Route path="/trends/:id" element={<TrendDetail />} />
+          <Route path="/designers" element={<DesignerList />} />
+          <Route path="/designers/:id" element={<DesignerDetail />} />
           <Route path="/closet" element={<Placeholder title="Closet" />} />
           <Route path="/shop/*" element={<Placeholder title="Shop" />} />
           <Route path="/you" element={<Placeholder title="You" />} />
