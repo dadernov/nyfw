@@ -1,0 +1,30 @@
+.stage { min-height: 100%; display: flex; }
+.device { position: relative; width: 100%; min-height: 100dvh; background: var(--ivory); display: flex; flex-direction: column; }
+.viewport { flex: 1; position: relative; overflow-y: auto; overflow-x: hidden; }
+.viewport.with-tabs { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); }
+@media (min-width: 600px) {
+  .stage { align-items: center; justify-content: center; gap: 72px; padding: 40px; min-height: 100vh;
+    background: radial-gradient(1200px 700px at 30% 20%, #FBF8F2, #EDE6DA); }
+  .device { width: 390px; height: 844px; min-height: 0; border-radius: 54px; overflow: hidden;
+    box-shadow: 0 0 0 11px #111, 0 0 0 12px #3a3a3a, 0 40px 80px rgba(30, 22, 10, .28); }
+  .device::before { content: ''; position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 120px; height: 34px; border-radius: 20px; background: #000; z-index: 50; }
+  .viewport { padding-top: 44px; }
+  .viewport .hero-bleed { margin-top: -44px; }
+  .aside { display: block !important; max-width: 300px; }
+}
+.aside { display: none; }
+.aside h1 { font-size: 64px; line-height: .92; }
+.aside .sub { margin-top: 14px; letter-spacing: .3em; font-size: 11px; text-transform: uppercase; }
+.aside p { margin-top: 28px; color: var(--ink-2); font-family: var(--serif); font-size: 18px; line-height: 1.45; }
+.aside .rule { width: 56px; height: 1px; background: var(--champagne); margin: 28px 0; }
+.aside .swatches { display: flex; gap: 10px; }
+.aside .swatches span { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); }
+.aside small { display: block; margin-top: 28px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+
+.tabbar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 40; height: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+  padding: 10px 8px env(safe-area-inset-bottom); display: flex; background: rgba(255, 253, 249, .92);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-top: 1px solid var(--line); }
+@media (max-width: 599px) { .tabbar { position: fixed; } }
+.tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 10.5px; color: var(--muted); letter-spacing: .02em; position: relative; }
+.tab.active { color: var(--ink); }
+.tab .dot { position: absolute; top: -10px; width: 18px; height: 2px; background: var(--champagne); border-radius: 2px; }
